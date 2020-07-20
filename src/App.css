@@ -36,3 +36,13 @@
   padding: 1%;
 
 }
+
+.plus{
+  /* background-color:  green; */
+  /* border: solid; */
+  border-right: 5px solid green;
+}
+
+.minus{
+  border-right: 5px solid red;
+}
