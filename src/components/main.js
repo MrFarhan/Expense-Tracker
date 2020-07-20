@@ -22,7 +22,7 @@ export const Balance = () => {
             <h4>
                 Current Balance
             </h4>
-            <h1>
+            <h1 className={total > 0 ? "plus" : "minus"}>
                 $ {total}</h1 >
         </div>
     )
@@ -38,14 +38,13 @@ export const IncomeExpense = () => {
         .toFixed(2);
 
     const expense = (
-        amounts.filter(item => item < 0).reduce((acc, item) => (acc, item), 0) * -1
-    ).toFixed(2);
-
+// eslint-disable-next-line
+        amounts.filter(item => item < 0).reduce((acc, item) => (acc, item), 0) * -1).toFixed(2)
+        
     return (
         <div className="incomeExpense">
+
             <h3 className="income">Income<span><br />$ {income} </span></h3>
-
-
             <h3 className="expense">Expense<span><br />$ {expense} </span></h3>
         </div>
     )
@@ -72,7 +71,7 @@ export const AddTransaction = () => {
     const [text, setText] = useState("");
     const [amount, setAmount] = useState("");
 
-    const {addTransaction} = useContext(GlobalContext)
+    const { addTransaction } = useContext(GlobalContext)
 
     const onSubmit = e => {
         e.preventDefault();
@@ -80,7 +79,7 @@ export const AddTransaction = () => {
         const newTransaction = {
             id: Math.floor(Math.random() * 100000000),
             text,
-            amount : +amount
+            amount: +amount
         }
         addTransaction(newTransaction);
     }
